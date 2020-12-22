@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <style>
+ .selected,.selected_parent {
+                background-color: red !important;
+                color:white;
+                border:2px solid red !important;
+            }
+           
+</style>            
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js
+"></script>
+<div class="sample">
+ <ul id="tutorials">
+                    <li class="tutorial" id="HTML"> HTML </li>
+                    <li class="tutorial" id="CSS"> CSS </li>
+                    <li class="tutorial" id="javascript"> javascript </li>
+                    <li class="tutorial" id="jquery"> jQuery </li>
+                    <li class="tutorial" id="PHP"> PHP </li>
+                    <li class="tutorial" id="MYSQL"> MYSQL </li>
+                </ul>
+</div>
+ <div class="clear"></div>
+                
+            <input class="btn" type="button" id="#jquerybtn" value="#jquery" /> - id 선택자 <br />
+            <input class="btn" type="button" id=".tutorial" value=".tutorial" /> - class 선택자 <br />
+            <input class="btn" type="button" value="li" /> - 엘리먼트 선택자 <br />
+            <input class="btn" type="button" value="#jquery, #MYSQL" /> - 다중 선택자 <br />
+
+    </head>
+<script>
+            $('input').on('click', function() {
+                $this = $(this);
+                $('*').removeClass('selected');
+                switch($this.attr('value')) {
+                    case '#jquery':
+                        $('#jquery').addClass('selected'); //id값이 jquery인 것을 불러온다.
+                        break;
+                    case '.tutorial':
+                        $('.tutorial').addClass('selected');//class값이 tutorial인 것을 불러온다.
+                        break;
+                    case 'li':
+                        $('li').addClass('selected');// 엘리먼트가 li인 것을 모두 불러온다.
+                        break;
+                    case '#jquery, #MYSQL':
+                        $('#jquery, #MYSQL').addClass('selected');// id값이 jquery, MYSQL인 것을 둘 다 가져온다.
+                        break;}
+            })
+</script>
+   
+</html> 
