@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            span {
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <p>
+            <input type="text" />
+            <span></span>
+        </p>
+        <script>
+            $("input").focus( function () {
+                $(this).next("span").html('focus');
+            }).blur( function() {
+                $(this).next("span").html('blur');
+            }).change(function(e){
+                alert('오류 '+$(e.target).val());
+            }).select(function(){
+                $(this).next('span').html('select');
+            });
+        </script>
+    </body>
+</html>
+
+
+////
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p {
+                margin:0;
+                color:blue;
+            }
+            div, p {
+                margin-left:10px;
+            }
+            span {
+                color:red;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <p>
+            당신은 남자입니까? 맞으면 '예'을 적으시오.
+        </p>
+        <form action="javascript:alert('success!');">
+            <div>
+                <input type="text" />
+ 
+                <input type="submit" />
+            </div>
+        </form>
+        <span></span>
+        <script>
+            $("form").submit( function() {
+                if ($("input:first").val() == "예") {
+                    $("span").text("인정...").show();
+                    return true;
+                }
+                $("span").text("거짓말").show().fadeOut(1000);
+                return false;
+            });
+        </script>
+    </body>
+</html>
+
